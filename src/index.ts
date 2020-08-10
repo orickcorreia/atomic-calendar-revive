@@ -511,7 +511,8 @@ class AtomicCalendarRevive extends LitElement {
 				.bullet-event-div-declined {
 					-webkit-border-radius: 8px;
 					border-radius: 8px;
-					border: 1px solid;
+					border-left: 8px solid;
+					background-color: rgba(125, 125, 125, .15);
 					height: 6px;
 					width: 6px;
 					display: inline-block;
