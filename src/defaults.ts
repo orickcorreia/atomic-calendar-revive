@@ -71,20 +71,20 @@ export default {
 
 	// Calendar Mode Default Settings
 
-	calGridColor: 'rgba(86, 86, 86, .35)',
+	calGridColor: 'rgba(125, 125, 125, .1)',
 	calDayColor: 'var(--primary-text-color)',
-	calWeekDayColor: 'var(--primary-text-color)',
+	calWeekDayColor: 'var(--primary-color)',
 	calDateColor: 'var(--primary-text-color)',
 	defaultCalColor: 'var(--primary-text-color)',
 
-	calEventBackgroundColor: 'rgba(86, 100, 86, .35)',
+	calEventBackgroundColor: 'rgba(125, 125, 125, .35)',
 	calEventBackgroundFilter: null,
 
-	calActiveEventBackgroundColor: 'rgba(86, 128, 86, .35)',
+	calActiveEventBackgroundColor: 'rgba(125, 125, 125, .35)',
 	calActiveEventBackgroundFilter: null,
 
-	calEventSatColor: 'rgba(255, 255, 255, .05)',
-	calEventSunColor: 'rgba(255, 255, 255, .15)',
+	calEventSatColor: 'rgba(125, 125, 125, .1)',
+	calEventSunColor: 'rgba(125, 125, 125, .2)',
 
 	calEventHolidayColor: 'red',
 	calEventHolidayFilter: null,
