@@ -154,17 +154,17 @@ class AtomicCalendarRevive extends LitElement {
 
 			// Calendar Mode Default Settings
 
-			calGridColor: 'rgba(86, 86, 86, .35)',
+			calGridColor: 'rgba(125, 125, 125, .15)',
 			calDayColor: 'var(--primary-text-color)',
 			calWeekDayColor: 'var(--primary-text-color)',
 			calDateColor: 'var(--primary-text-color)',
 			defaultCalColor: 'var(--primary-text-color)',
 
-			calEventBackgroundColor: 'rgba(86, 100, 86, .35)',
+			calEventBackgroundColor: 'rgba(125, 125, 125, .1)',
 
-			calActiveEventBackgroundColor: 'rgba(86, 128, 86, .35)',
-			calEventSatColor: 'rgba(255, 255, 255, .05)',
-			calEventSunColor: 'rgba(255, 255, 255, .15)',
+			calActiveEventBackgroundColor: 'rgba(125, 125, 125, .35)',
+			calEventSatColor: 'rgba(125, 125, 125, .1)',
+			calEventSunColor: 'rgba(125, 125, 125, .2)',
 
 			calEventTime: false, // show calendar event summary time
 
@@ -511,7 +511,8 @@ class AtomicCalendarRevive extends LitElement {
 				.bullet-event-div-declined {
 					-webkit-border-radius: 8px;
 					border-radius: 8px;
-					border: 1px solid;
+					border-left: 8px solid;
+					background-color: rgba(125, 125, 125, .15);
 					height: 6px;
 					width: 6px;
 					display: inline-block;
@@ -530,12 +531,11 @@ class AtomicCalendarRevive extends LitElement {
 				.summary-fullday-div-accepted {
 					-webkit-border-radius: 5px;
 					border-radius: 5px;
-					border: 2px solid;
-					border-left: 7px solid;
-					padding: 0 4px;
-					margin: 5px 0;
+					border: 1px solid;
+					padding: 2px 4px;
+					margin: 8px 0;
 					height: 18px;
-					line-height: 16px;
+					line-height: 12px;
 				}
 
 				.summary-fullday-div-declined {
