@@ -32,6 +32,7 @@ class AtomicCalendarRevive extends LitElement {
 	shouldUpdateHtml: boolean;
 	errorMessage: string;
 	modeToggle: string;
+	gridFullBorder: string;
 	refreshCalEvents: boolean;
 	monthToGet: string;
 	month: any[];
@@ -52,6 +53,7 @@ class AtomicCalendarRevive extends LitElement {
 		this.shouldUpdateHtml = true;
 		this.errorMessage = '';
 		this.modeToggle = '';
+		this.gridFullBorder = '';
 		this.selectedMonth = moment();
 		this.refreshCalEvents = true;
 		this.monthToGet = moment().format('MM');
@@ -154,9 +156,11 @@ class AtomicCalendarRevive extends LitElement {
 
 			// Calendar Mode Default Settings
 
-			calGridColor: 'rgba(125, 125, 125, .15)',
+			calGridFullBorder: false,
+			calGridColor: 'rgba(125, 125, 125, .1)',
+			calGridBorder: 1,
 			calDayColor: 'var(--primary-text-color)',
-			calWeekDayColor: 'var(--primary-text-color)',
+			calWeekDayColor: 'var(--primary-color)',
 			calDateColor: 'var(--primary-text-color)',
 			defaultCalColor: 'var(--primary-text-color)',
 
@@ -286,23 +290,27 @@ class AtomicCalendarRevive extends LitElement {
 		}
 	}
 
+
 	getDate() {
 		const date = moment().format(this._config.dateFormat);
 		return html`${date}`;
 	}
 
+
 	setStyle() {
+		if (this._config.calGridFullBorder == true) this.gridFullBorder = 'border';
+		else this.gridFullBorder = 'border-bottom'
 		return html`
 			<style>
 				.cal-card {
 					cursor: default;
-					padding: 16px;
+					padding: 16px 20px;
 				}
 
 				.cal-name {
 					font-size: var(--paper-font-headline_-_font-size);
 					color: ${this._config.nameColor};
-					padding: 4px 8px 12px 0px;
+					/* padding: 4px 8px 12px 0px; */
 					line-height: 40px;
 					cursor: default;
 					float: left;
@@ -314,7 +322,7 @@ class AtomicCalendarRevive extends LitElement {
 					justify-content: space-between;
 					vertical-align: middle;
 					align-items: center;
-					margin: 0 8px 0 2px;
+					margin: 0px 6px 12px 6px;
 				}
 
 				.calDate {
@@ -322,7 +330,7 @@ class AtomicCalendarRevive extends LitElement {
 					font-size: 1.3rem;
 					font-weight: 400;
 					color: var(--primary-text-color);
-					padding: 4px 8px 12px 0px;
+					/* padding: 4px 8px 12px 0px; */
 					line-height: 40px;
 					cursor: default;
 					float: right;
@@ -383,8 +391,8 @@ class AtomicCalendarRevive extends LitElement {
 				.relativeTime {
 					color: ${this._config.timeColor};
 					font-size: ${this._config.timeSize}%;
-					float: right;
-					padding-left: 5px;
+					float: left;
+					padding-left: 10px;
 				}
 
 				.event-main {
@@ -462,14 +470,16 @@ class AtomicCalendarRevive extends LitElement {
 
 				td.cal {
 					padding: 5px 5px 5px 5px;
-					border: 1px solid ${this._config.calGridColor};
+					${this.gridFullBorder}: ${this._config.calGridBorder}px solid ${this._config.calGridColor}; 
+					/* border-bottom: ${this._config.calGridBorder}px solid rgba(125, 125, 125, 0.1); */
 					text-align: center;
 					vertical-align: middle;
 					width: 100%;
 				}
 
 				.calDay {
-					max-height: 38px;
+					min-height: 35px;
+					/* max-height: 38px; */
 					font-size: 95%;
 					max-width: 38px;
 					margin: auto;
@@ -492,6 +502,7 @@ class AtomicCalendarRevive extends LitElement {
 
 				.calTableContainer {
 					width: 100%;
+					padding: 20px 0px 16px 0px
 				}
 
 				.summary-event-div {
@@ -511,8 +522,7 @@ class AtomicCalendarRevive extends LitElement {
 				.bullet-event-div-declined {
 					-webkit-border-radius: 8px;
 					border-radius: 8px;
-					border-left: 8px solid;
-					background-color: rgba(125, 125, 125, .15);
+					border: 1px solid;
 					height: 6px;
 					width: 6px;
 					display: inline-block;
@@ -524,38 +534,41 @@ class AtomicCalendarRevive extends LitElement {
 					white-space: nowrap;
 					display: inline-block;
 					vertical-align: middle;
-					margin: 0 5px;
+					margin:3px 10px 4px 10px;
 					text-decoration: none !important;
 				}
 
 				.summary-fullday-div-accepted {
 					-webkit-border-radius: 5px;
 					border-radius: 5px;
-					border: 1px solid;
-					padding: 2px 4px;
+					border-left: 8px solid;
+					background-color: rgba(125, 125, 125, .15);
+					/* padding: 8px 4px; */
 					margin: 8px 0;
-					height: 18px;
-					line-height: 12px;
+					/* height: 22px; */
+					/* line-height: 10px; */
 				}
 
 				.summary-fullday-div-declined {
 					-webkit-border-radius: 5px;
 					border-radius: 5px;
-					border: 1px solid;
-					padding: 0 4px;
-					margin: 5px 0;
-					height: 18px;
-					line-height: 16px;
+					border-left: 8px solid;
+					background-color: rgba(125, 125, 125, .15);
+					/* padding: 8px 4px; */
+					margin: 8px 0;
+					/* height: 22px; */
+					/* line-height: 10px; */
 				}
 
 				.calIcon {
-					--mdc-icon-size: 10px;
+					--mdc-icon-size: 12px;
 					width: 10px;
 					height: 10px;
 					padding-top: 0px;
 					margin-top: -10px;
-					margin-right: -1px;
+					margin-right: 0px;
 					margin-left: -1px;
+					/* opacity: 0.5; */
 				}
 
 				.calDateSelector {

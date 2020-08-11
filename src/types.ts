@@ -68,7 +68,9 @@ export interface atomicCardConfig extends LovelaceCardConfig {
 	defaultMode?: string;
 
 	// Calendar Mode Default Settings
+	calGridFullBorder?: boolean;
 	calGridColor?: string;
+	calGridBorder?: number;
 	calDayColor?: string;
 	calWeekDayColor?: string;
 	calDateColor?: string;

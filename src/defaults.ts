@@ -71,7 +71,9 @@ export default {
 
 	// Calendar Mode Default Settings
 
+	calGridFullBorder: false,
 	calGridColor: 'rgba(125, 125, 125, .1)',
+	calGridBorder: 1,
 	calDayColor: 'var(--primary-text-color)',
 	calWeekDayColor: 'var(--primary-color)',
 	calDateColor: 'var(--primary-text-color)',
